@@ -3,27 +3,27 @@
 #include <string>
 using namespace std;
 
-// ── НАБЛЮДАТЕЛЬ ─────────────────────────
+
 class IObserver {
 public:
     virtual void update(const string& event) = 0;
 };
 
-// ── СУБЪЕКТ (за кем следят) ─────────────
+
 class Game {
 private:
-    vector<IObserver*> observers;  // список подписчиков
+    vector<IObserver*> observers;  
 public:
     void subscribe(IObserver* o) {
-        observers.push_back(o);    // добавить подписчика
+        observers.push_back(o);    
     }
     void notify(const string& event) {
         for (auto& o : observers)
-            o->update(event);      // оповестить всех
+            o->update(event);      
     }
     void playerDied() {
         cout << "Player died!\n";
-        notify("death");           // что-то случилось — оповещаем
+        notify("death");           
     }
     void levelUp() {
         cout << "Level up!\n";
@@ -31,7 +31,7 @@ public:
     }
 };
 
-// ── КОНКРЕТНЫЕ НАБЛЮДАТЕЛИ ──────────────
+
 class ScoreSystem : public IObserver {
 public:
     void update(const string& event) override {
