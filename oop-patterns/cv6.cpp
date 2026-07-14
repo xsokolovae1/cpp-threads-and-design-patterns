@@ -85,9 +85,9 @@ class TrackFactory : public VehicleFactory{
 
 int main() {
 
-Logger* l = Logger::getInstance();  // ← только так!
+Logger* l = Logger::getInstance(); 
 
-// и в main() надо использовать фабрику!
+
 
 l->display();
 CarFactory carFactory;
