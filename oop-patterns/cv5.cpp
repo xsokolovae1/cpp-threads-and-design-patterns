@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-// ── СТРАТЕГИЯ (базовый враг) ────────────
+
 class Enemy {
 public:
     virtual void attack() = 0;
@@ -23,7 +23,7 @@ public:
 };
 
 
-// ── ФАБРИКА ─────────────────────────────
+
 class EnemyFactory {
 public:
     Enemy* create(const string& type) {
@@ -35,15 +35,15 @@ public:
 // ── СИНГЛТОН ────────────────────────────
 class GameLogger {
 private:
-    GameLogger() {}                            // конструктор private!
-    static GameLogger* instance;               // единственный экземпляр
+    GameLogger() {}                            
+    static GameLogger* instance;               
 
 public:
     static GameLogger* getInstance() {
-        if (instance == nullptr) {             // если ещё не создан
-            instance = new GameLogger();       // создаём один раз
+        if (instance == nullptr) {             
+            instance = new GameLogger();      
         }
-        return instance;                       // всегда возвращаем один и тот же
+        return instance;                       
     }
 
     void log(const string& message) {
@@ -51,16 +51,16 @@ public:
     }
 };
 
-GameLogger* GameLogger::instance = nullptr;    // изначально пусто
+GameLogger* GameLogger::instance = nullptr;   
 
-// ── MAIN ────────────────────────────────
+
 int main() {
-    // фабрика создаёт врагов
+    
     EnemyFactory factory;
     Enemy* e1 = factory.create("goblin");
     Enemy* e2 = factory.create("dragon");
 
-    // синглтон — всегда один и тот же логгер
+   
     GameLogger* logger = GameLogger::getInstance();
     logger->log("Game started");
 
