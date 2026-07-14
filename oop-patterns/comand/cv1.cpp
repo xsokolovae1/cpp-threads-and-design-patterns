@@ -2,14 +2,13 @@
 #include <string>
 using namespace std;
 
-// ── ПОЛУЧАТЕЛЬ (тот кто реально делает) ─
+
 class Light {
 public:
     void turnOn() { cout << "Light on\n"; }
     void turnOff() { cout << "Light off\n"; }
 };
 
-// ── КОМАНДА ─────────────────────────────
 class ICommand {
 public:
     virtual void execute() = 0;
