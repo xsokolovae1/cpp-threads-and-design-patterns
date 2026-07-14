@@ -27,7 +27,6 @@ public:
     }
 };
 
-// ── ДЕКОРАТОР ──────────────────────────
 class SmoothedPlanner : public IPlanner {
     IPlanner* inner;
 public:
