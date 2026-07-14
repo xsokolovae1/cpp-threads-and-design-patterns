@@ -2,14 +2,13 @@
 #include <string>
 using namespace std;
 
-// ── БАЗОВЫЙ ИНТЕРФЕЙС ───────────────────
+
 class ICoffee {
 public:
     virtual string getDescription() = 0;
     virtual float getCost() = 0;
 };
 
-// ── ОБЫЧНЫЙ КОФЕ ────────────────────────
 class SimpleCoffee : public ICoffee {
 public:
     string getDescription() override {
@@ -20,7 +19,7 @@ public:
     }
 };
 
-// ── ДЕКОРАТОРЫ ──────────────────────────
+
 class MilkDecorator : public ICoffee {
 private:
     ICoffee* inner;  // кого оборачиваем
@@ -50,7 +49,7 @@ public:
 int main() {
     SimpleCoffee coffee;
     MilkDecorator withMilk(&coffee);
-    SugarDecorator withSugar(&withMilk);  // оборачиваем ещё раз!
+    SugarDecorator withSugar(&withMilk);  // оборачиваем ещё раз
 
     cout << withSugar.getDescription() << "\n";
     cout << withSugar.getCost() << "\n";
