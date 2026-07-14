@@ -4,7 +4,7 @@ using namespace std;
 
 class TrafficLight;  // forward declaration
 
-// ── СОСТОЯНИЕ ───────────────────────────
+
 class IState {
 public:
     virtual void handle(TrafficLight& light) = 0;
@@ -25,13 +25,13 @@ public:
     void handle(TrafficLight& light) override;
 };
 
-// ── КОНТЕКСТ (объект который меняет состояние) ──
+
 class TrafficLight {
 private:
     IState* state;
 public:
     TrafficLight() {
-        state = new RedState();  // начальное состояние
+        state = new RedState(); 
     }
     void setState(IState* s) {
         state = s;
@@ -41,7 +41,7 @@ public:
     }
 };
 
-// ── РЕАЛИЗАЦИИ СОСТОЯНИЙ ────────────────
+
 void RedState::handle(TrafficLight& light) {
     cout << "Red — stop!\n";
     light.setState(new GreenState());
