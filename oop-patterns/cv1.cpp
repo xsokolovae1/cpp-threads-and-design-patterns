@@ -49,7 +49,7 @@ public:
     }
 };
 
-// ── ROBOT ───────────────────────────────
+/
 class Robot {
 public:
     void move(const Path& path) {
@@ -58,7 +58,7 @@ public:
     }
 };
 
-// ── MAIN ────────────────────────────────
+
 int main() {
     RRTPlanner rrt;
     SmoothedPlanner smoothed(&rrt);
