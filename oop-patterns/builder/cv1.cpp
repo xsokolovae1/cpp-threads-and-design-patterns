@@ -2,7 +2,6 @@
 #include <string>
 using namespace std;
 
-// ── ПРОДУКТ ─────────────────────────────
 class Computer {
 public:
     string cpu;
@@ -16,15 +15,14 @@ public:
     }
 };
 
-// ── СТРОИТЕЛЬ ───────────────────────────
+
 class ComputerBuilder {
 private:
     Computer computer;
 public:
     ComputerBuilder& setCPU(const string& cpu) {
         computer.cpu = cpu;
-        return *this;  // возвращаем себя — чтобы можно было цепочкой!
-    }
+        return *this;  
     ComputerBuilder& setRAM(const string& ram) {
         computer.ram = ram;
         return *this;
@@ -34,7 +32,7 @@ public:
         return *this;
     }
     Computer build() {
-        return computer;  // возвращаем готовый объект
+        return computer;  
     }
 };
 
