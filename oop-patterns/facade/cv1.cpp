@@ -2,7 +2,6 @@
 #include <string>
 using namespace std;
 
-// ── СЛОЖНЫЕ КЛАССЫ ──────────────────────
 class TV {
 public:
     void turnOn() { cout << "TV on\n"; }
