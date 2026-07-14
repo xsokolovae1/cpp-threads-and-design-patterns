@@ -5,7 +5,7 @@ using namespace std;
 struct Point { float x, y, z; };
 using Path = vector<Point>;
 
-// ── СТРАТЕГИЯ ──────────────────────────
+
 class IPlanner {
 public:
     virtual Path plan() = 0;
@@ -41,7 +41,7 @@ public:
     }
 };
 
-// ── NAVIGATOR ──────────────────────────
+
 class Navigator {
 public:
     Path computePath(IPlanner* planner) {
