@@ -5,7 +5,6 @@ using namespace std;
 
 struct Enemy { string name; int health; };
 
-// ── СТРАТЕГИЯ ──────────────────────────
 class IDifficulty {
 public:
     virtual vector<Enemy> generate() = 0;
@@ -27,7 +26,7 @@ public:
     }
 };
 
-// ── ДЕКОРАТОР ──────────────────────────
+
 class WithBoss : public IDifficulty {
     IDifficulty* inner;
 public:
@@ -42,7 +41,6 @@ public:
     }
 };
 
-// ── GameAI ─────────────────────────────
 class GameAI {
 public:
     vector<Enemy> generateEnemies(IDifficulty* difficulty) {
@@ -50,7 +48,6 @@ public:
     }
 };
 
-// ── Game ───────────────────────────────
 class Game {
 public:
     void start(const vector<Enemy>& enemies) {
@@ -66,7 +63,7 @@ int main() {
     GameAI ai;
     Game game;
 
-     // ← неправильно
-   vector<Enemy> enemies = ai.generateEnemies(&easy); // ← правильно
+    
+   vector<Enemy> enemies = ai.generateEnemies(&easy); 
    game.start(enemies);
 }
